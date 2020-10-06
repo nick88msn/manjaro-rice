@@ -42,7 +42,9 @@ pip3 install pipenv pyautogui
 sudo systemctl enable fstrim.timer && systemctl start fstrim.timer 
 
 ## 12. Add CPU microcode for firmware updates
-# install intel-ucode if cpu is intel
+
+Install intel-ucode if cpu is intel
+
 `
 cpu_vendor=$(lscpu | grep Vendor | awk -F ': +' '{print $2}')
 if [[ $cpu_vendor == "GenuineIntel" ]]; then
