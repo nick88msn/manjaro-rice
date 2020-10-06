@@ -17,9 +17,9 @@ sudo pacman -S speedtest-cli code docker texlive-most texlive-lang neofetch gith
 
 ## 4.1 Install yay for AUR packages
 `
-cd $HOME
-git clone https://aur.archlinux.org/yay.git
-cd yay
+cd $HOME && \
+git clone https://aur.archlinux.org/yay.git && \
+cd yay && \
 makepkg -si
 `
 ## 5. Add perl extension for urxvt 
@@ -37,3 +37,15 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 ## 10. Setup python environment and global packages
 pip3 install pipenv pyautogui
+
+## 11. Add trim support (only if you use an SSD)
+sudo systemctl enable fstrim.timer && systemctl start fstrim.timer 
+
+## 12. Add CPU microcode for firmware updates
+# install intel-ucode if cpu is intel
+`
+cpu_vendor=$(lscpu | grep Vendor | awk -F ': +' '{print $2}')
+if [[ $cpu_vendor == "GenuineIntel" ]]; then
+	pacman -S intel-ucode
+fi
+`
