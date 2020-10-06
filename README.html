@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="what-is-this">What is this</h1>
+<p>My personal script to customize a fresh Manjaro i3 installation to a working laptop on my Dell XPS 9560 (4k display).</p>
+<h2 id="se-the-right-dpi-for-your-monitor">1. Se the right dpi for your monitor</h2>
+<p>Change the first row of the .Xresources file from 95 to 125-150 for HiDPI displays.</p>
+<h2 id="update-all-packages">2. Update all packages</h2>
+<p>sudo pacman -Syu</p>
+<h2 id="set-vim-as-default-editor">3. Set vim as default EDITOR</h2>
+<p>export EDITOR=$(which vim)</p>
+<h2 id="install-packages">4. Install packages</h2>
+<p>sudo pacman -S - &lt; pkglist.txt</p>
+<h2 id="install-yay-for-aur-packages">4.1 Install yay for AUR packages</h2>
+<p><code>$ cd $HOME &amp;&amp; \ $ git clone https://aur.archlinux.org/yay.git &amp;&amp; \ $ cd yay &amp;&amp; \ $ makepkg -si</code> ## 5. Add perl extension for urxvt sudo pacman -S urxvt-perls</p>
+<h2 id="add-per-extension-into-.xresources">6. Add per extension into .Xresources</h2>
+<h2 id="edit-vimrc">7. Edit vimrc</h2>
+<h2 id="install-plug-for-vim-plugin-management">8. Install Plug for vim plugin management</h2>
+<p>curl -fLo ~/.vim/autoload/plug.vim –create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</p>
+<h2 id="set-background">9. Set background</h2>
+<blockquote>
+<p>Download background image with curl. Set download folder to Pictures/ and then set it as bg with feh.</p>
+</blockquote>
+<h2 id="setup-python-environment-and-global-packages">10. Setup python environment and global packages</h2>
+<p>pip3 install pipenv pyautogui</p>
+<h2 id="add-trim-support-only-if-you-use-an-ssd">11. Add trim support (only if you use an SSD)</h2>
+<p>sudo systemctl enable fstrim.timer &amp;&amp; systemctl start fstrim.timer</p>
+<h2 id="add-cpu-microcode-for-firmware-updates">12. Add CPU microcode for firmware updates</h2>
+<p>Install intel-ucode if cpu is intel</p>
+<p><code>cpu_vendor=$(lscpu | grep Vendor | awk -F ': +' '{print $2}')   if [[ $cpu_vendor == "GenuineIntel" ]]; then       pacman -S intel-ucode   fi</code></p>
+</body>
+</html>
