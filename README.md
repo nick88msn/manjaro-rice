@@ -1,6 +1,6 @@
 # What is this
 
-My personal customization to customize a Manjaro i3 on a Dell XPS 9560.
+My personal customization from a fresh Manjaro i3 installation to a working laptop on my Dell XPS 9560 (4k display).
 
 ## 1. Se the right dpi for your monitor 
 
@@ -25,5 +25,8 @@ sudo pacman -S urxvt-perls
 ## 8. Install Plug for vim plugin management
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-## 9. Set backgroun
-> Download background with curl in Pictures/ and then set it as bg with feh.
+## 9. Set background
+> Download background image with curl. Set download folder to Pictures/ and then set it as bg with feh.
+
+## 10. Setup python environment and global packages
+pip3 install pipenv pyautogui
