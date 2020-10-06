@@ -13,14 +13,14 @@ sudo pacman -Syu
 export EDITOR=$(which vim)
 
 ## 4. Install packages
-sudo pacman -S speedtest-cli code docker texlive-most texlive-lang neofetch github-cli noto-fonts-emoji ttf-dejavu feh sxiv zathura zathura-pdf-mupdf ranger
+sudo pacman -S - < pkglist.txt
 
 ## 4.1 Install yay for AUR packages
 `
-cd $HOME && \
-git clone https://aur.archlinux.org/yay.git && \
-cd yay && \
-makepkg -si
+$ cd $HOME && \
+$ git clone https://aur.archlinux.org/yay.git && \
+$ cd yay && \
+$ makepkg -si
 `
 ## 5. Add perl extension for urxvt 
 sudo pacman -S urxvt-perls
@@ -46,8 +46,8 @@ sudo systemctl enable fstrim.timer && systemctl start fstrim.timer
 Install intel-ucode if cpu is intel
 
 `
-cpu_vendor=$(lscpu | grep Vendor | awk -F ': +' '{print $2}')  
-if [[ $cpu_vendor == "GenuineIntel" ]]; then  
-	pacman -S intel-ucode  
-fi  
+$ cpu_vendor=$(lscpu | grep Vendor | awk -F ': +' '{print $2}')  
+$ if [[ $cpu_vendor == "GenuineIntel" ]]; then  
+$	pacman -S intel-ucode  
+$ fi  
 `
