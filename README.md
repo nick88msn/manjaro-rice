@@ -47,7 +47,9 @@ Install intel-ucode if cpu is intel
 
 `
 cpu_vendor=$(lscpu | grep Vendor | awk -F ': +' '{print $2}')
+
 if [[ $cpu_vendor == "GenuineIntel" ]]; then
 	pacman -S intel-ucode
+
 fi
 `
