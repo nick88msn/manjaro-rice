@@ -1,6 +1,6 @@
 # What is this
 
-My personal customization from a fresh Manjaro i3 installation to a working laptop on my Dell XPS 9560 (4k display).
+My personal script to customize a fresh Manjaro i3 installation to a working laptop on my Dell XPS 9560 (4k display).
 
 ## 1. Se the right dpi for your monitor 
 
@@ -15,6 +15,13 @@ export EDITOR=$(which vim)
 ## 4. Install packages
 sudo pacman -S speedtest-cli code docker texlive-most texlive-lang neofetch github-cli noto-fonts-emoji ttf-dejavu feh sxiv zathura zathura-pdf-mupdf ranger
 
+## 4.1 Install yay for AUR packages
+`
+cd $HOME
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+`
 ## 5. Add perl extension for urxvt 
 sudo pacman -S urxvt-perls
 
