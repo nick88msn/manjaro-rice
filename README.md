@@ -2,7 +2,7 @@
 
 My personal script to customize a fresh Manjaro i3 installation to a working laptop on my Dell XPS 9560 (4k display).
 
-## 1. Se the right dpi for your monitor 
+## 1. Set the right dpi for your monitor 
 
 Change the first row of the .Xresources file from 95 to 125-150 for HiDPI displays.
 
@@ -134,6 +134,10 @@ nnoremap <C-H> <C-W><C-H>
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 "autocmd FileType markdown nnoremap <C-P> :!pandoc % -f markdown -t html -s -o README.html && google-chrome-stable README.html & disown<enter>
 autocmd FileType markdown nnoremap <C-P> :!google-chrome-stable % & disown <CR>
+
+autocmd BufNewFile,BufRead *.tex set filetype=latex
+autocmd FileType latex nnoremap <C-P> :!pdflatex -output-directory=. -jobname=document % && zathura document.pdf & disown <CR>
+autocmd FileType latex nnoremap <C-B> :!pdflatex -output-directory=. -jobname=document % <CR>
 
 " =====================================================
 "			PLUGINS
